@@ -1,37 +1,37 @@
-                ####Data Heredity of Headform in Man####
+#                 ####Data Heredity of Headform in Man####
 
-X <- matrix(c(191, 155,
-              195, 149,
-              181, 148, 
-              183, 153, 
-              176, 144, 
-              208, 157, 
-              189, 150, 
-              197, 159, 
-              188, 152, 
-              192, 150, 
-              179, 158, 
-              183, 147, 
-              174, 150, 
-              190, 159, 
-              188, 151, 
-              163, 137, 
-              195, 155, 
-              186, 153, 
-              181, 145, 
-              175, 140, 
-              192, 154, 
-              174, 143, 
-              176, 139, 
-              197, 167, 
-              190, 163),
-            nrow=25,     ## number of rows 
-            ncol=2,      ## number of columns 
-            byrow = T)   ## fill matrix by rows
-n <- nrow(X); m <- ncol(X)    # number of rows and columns
-name_v<-c("X1","X2") ### name of variables 
-name_vl<-c(seq(1,n,1))
-print(X)
+# X <- matrix(c(191, 155,
+#               195, 149,
+#               181, 148, 
+#               183, 153, 
+#               176, 144, 
+#               208, 157, 
+#               189, 150, 
+#               197, 159, 
+#               188, 152, 
+#               192, 150, 
+#               179, 158, 
+#               183, 147, 
+#               174, 150, 
+#               190, 159, 
+#               188, 151, 
+#               163, 137, 
+#               195, 155, 
+#               186, 153, 
+#               181, 145, 
+#               175, 140, 
+#               192, 154, 
+#               174, 143, 
+#               176, 139, 
+#               197, 167, 
+#               190, 163),
+#             nrow=25,     ## number of rows 
+#             ncol=2,      ## number of columns 
+#             byrow = T)   ## fill matrix by rows
+# n <- nrow(X); m <- ncol(X)    # number of rows and columns
+# name_v<-c("X1","X2") ### name of variables 
+# name_vl<-c(seq(1,n,1))
+# print(X)
 
 
 
@@ -41,14 +41,14 @@ print(X)
 
                    ### If we call an external file ###
 
-data <- read.table("School_qualifications.data",header=TRUE)
-#data <- read.table("School_qualifications2.csv",sep=",",header=TRUE)
-data <- read.table("forestfires.csv",sep=",",header=TRUE)
-data <- read.table("Car.csv",sep=",",header=TRUE)
+# data <- read.table("School_qualifications.data",header=TRUE)
+# data <- read.table("School_qualifications2.csv",sep=",",header=TRUE)
+# data <- read.table("forestfires.csv",sep=",",header=TRUE)
+# data <- read.table("Car.csv",sep=",",header=TRUE)
 data <- read.table("Fire.csv",sep=",",header=TRUE)
-data <- read.table("Survey.csv",sep=",",header=TRUE)
-data <- read.table("wineDataset.csv",sep=",",header=TRUE)
-data <- read.table("BodyFat.csv",sep=",",header=TRUE)
+# data <- read.table("Survey.csv",sep=",",header=TRUE)
+# data <- read.table("wineDataset.csv",sep=",",header=TRUE)
+# data <- read.table("BodyFat.csv",sep=",",header=TRUE)
 
 n<-length(data[,1]) #number of subjects
 m<-length(data[1,]) #number of variables
