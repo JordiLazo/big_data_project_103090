@@ -1,24 +1,8 @@
-### EM algorithm for a mixture of two univariate Gaussian distribution ###
-### Call data, it can be a picture ###
 
-# data <- read.table("Picture1.data",header=TRUE)
-# data <- read.table("Lion.data",header=TRUE)
-# data <- read.table("Homer1.data",header=TRUE)
-# data <- read.table("BMW.data",header=TRUE)
 data <- read.table("Batman.data",header=TRUE)
-# data <- read.table("Face.data",header=TRUE)
-# data <- read.table("Robot.data",header=TRUE)
-# data <- read.table("Porqui.data",header=TRUE)
-# data <- read.table("Ferrari.data",header=TRUE)
-# data <- read.table("Youtube.data",header=TRUE)
-# data <- read.table("Info.data",header=TRUE)
-# data <- read.table("Barca.data",header=TRUE)
-# data <- read.table("Info.data",header=TRUE)
 
 
 X<-data$X
-#n1<-2000
-#n2<-5000
 
 mean(X)
 var(X)
