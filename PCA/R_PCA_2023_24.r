@@ -147,6 +147,8 @@ FC<-matrix(Eig$vector[,1],
                   ncol=1,
                   byrow=T)
 Z1<-Y %*% (1*FC)
+print("JORDIIII")
+print(FC)
 
 ### We can change the signe of the components, as long we change all the values
 ### If we want to compare Z1 and Z2 in a graph we better change the sign of all the components
