@@ -46,9 +46,6 @@
 # data <- read.table("forestfires.csv",sep=",",header=TRUE)
 # data <- read.table("Car.csv",sep=",",header=TRUE)
 data <- read.table("Fire.csv",sep=",",header=TRUE)
-# data <- read.table("Survey.csv",sep=",",header=TRUE)
-# data <- read.table("wineDataset.csv",sep=",",header=TRUE)
-# data <- read.table("BodyFat.csv",sep=",",header=TRUE)
 
 n<-length(data[,1]) #number of subjects
 m<-length(data[1,]) #number of variables
@@ -65,18 +62,7 @@ for(i in 1:n){
  }
 }
 
-X <- matrix(k,
-            nrow=n,     ## number of rows 
-            ncol=m,      ## number of columns 
-            byrow = T)   ## fill matrix by rows
-
-
-
-
-
-               ########## Assuming that we have the X matrix ############### 
-
-
+X <- matrix(k,nrow=n,ncol=m,byrow = T)
 ## obtain the 1 matrix####
 mx1<-matrix(rep(1,n),nrow=n, ncol=1)
 #### 1 transpose matrix ####
@@ -98,23 +84,8 @@ X[,1]-mean(X[,1]) #corrected column
 B[,1] #compare
 X[,2]-mean(X[,2]) #corrected column
 B[,2] #compare
-
-
-### Compute the S matrix (variance-covariance matrix of X) ###
-
 S<-(t(B) %*% B)/(n)
-
-##Remenber the variance-covariance matrix are the poblational parameters (/n), try sum(B[,1]^2)/n=S[1,1], sum(B[,2]^2)/n=S[2,2], or
-##sum(B[,1]*B[,2])/n=S[1,2]=S[2,1]
-
-### Obtain a diagonal matrix D_1s of order m with the inver of standard deviation (using S)
-
 D_1s<- diag(sqrt(1/diag(S)), nrow=m, ncol=m)
-
-### Now D_1s is a diagonal matrix of order m with the inver of standard deviation
-
-### Obtain the Y matrix (centrered and reduced X matrix) ###
-
 Y<-B %*% D_1s
 
 ##Population variance var[
@@ -136,6 +107,8 @@ Eig<-eigen(R)
 ### Eigenvalues ###
 
 Eig$values
+print("LAZOOOOO")
+print(Eig)
 
 ### Eigenvectors ### Each column is a eigenvector
 
@@ -147,7 +120,7 @@ FC<-matrix(Eig$vector[,1],
                   ncol=1,
                   byrow=T)
 Z1<-Y %*% (1*FC)
-print("JORDIIII")
+print("FIRST COMPONENT:")
 print(FC)
 
 ### We can change the signe of the components, as long we change all the values
@@ -158,7 +131,8 @@ SC<-matrix(Eig$vector[,2],
                   ncol=1,
                   byrow=T)
 Z2<-Y %*% (1*SC)
-
+print("SECOND COMPONENT:")
+print(SC)
 TC<-matrix(Eig$vector[,3],
                   nrow=m,
                   ncol=1,
@@ -317,7 +291,7 @@ name_vl<-c(seq(1,n,1))
 
 
 ### Representation of data and first component ###
-
+print(R)
 postscript(file="Ortho_fig.ps")
 par(mar=2.50+c(1.50,8.80,1.50,8.80))
 plot(Y[,1],Y[,2])

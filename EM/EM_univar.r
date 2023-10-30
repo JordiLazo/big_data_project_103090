@@ -1,19 +1,7 @@
 ### EM algorithm for a mixture of two univariate Gaussian distribution ###
 ### Call data, it can be a picture ###
-
-# data <- read.table("Picture1.data",header=TRUE)
-# data <- read.table("Lion.data",header=TRUE)
-# data <- read.table("Homer1.data",header=TRUE)
-# data <- read.table("BMW.data",header=TRUE)
 data <- read.table("Batman.data",header=TRUE)
-# data <- read.table("Face.data",header=TRUE)
-# data <- read.table("Robot.data",header=TRUE)
-# data <- read.table("Porqui.data",header=TRUE)
-# data <- read.table("Ferrari.data",header=TRUE)
-# data <- read.table("Youtube.data",header=TRUE)
-# data <- read.table("Info.data",header=TRUE)
-# data <- read.table("Barca.data",header=TRUE)
-# data <- read.table("Info.data",header=TRUE)
+
 
 
 X<-data$X
@@ -30,7 +18,11 @@ X_image<-matrix(X,nrow=sqrt(n),ncol=sqrt(n),byrow=F)
 image(X_image)
 
 ###observe histogram of the values ##
+pdf(file="history.pdf")
 hist(X_image)
+dev.off()
+
+
 
 
 ### Start with some initial values for Mu1, Mu2, V1, V2, pi1, pi2
@@ -108,6 +100,14 @@ points(j,pi1,pch=19)
 
 }#close First For loop
 
+pdf(file="Z1.pdf")
+hist(Exp1)
+dev.off()
+
+pdf(file="Z2.pdf")
+hist(Exp2)
+dev.off()
+
 
 
 ### Print estimated parameters ###
@@ -134,8 +134,8 @@ postscript(file="Image3.ps")
 pdf(file="Image3.pdf")
 jpeg()
 layout(matrix(c(1,2),1,2,byrow=TRUE),respect=FALSE)
-image(X_image)
-image(Z11_image)
+image(X_image) #initial image
+image(Z11_image) #final image
 dev.off()
 dev.off()
 dev.off()
