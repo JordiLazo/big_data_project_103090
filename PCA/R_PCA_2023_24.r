@@ -132,7 +132,7 @@ SC<-matrix(Eig$vector[,2],
                   byrow=T)
 Z2<-Y %*% (1*SC)
 print("SECOND COMPONENT:")
-print(SC)
+print(Z2)
 TC<-matrix(Eig$vector[,3],
                   nrow=m,
                   ncol=1,
@@ -142,6 +142,8 @@ Z3<-Y %*% (1*TC)
 
 ### Explained variability for each component ###
 Z_var<-round(Eig$values/m*100,2)
+print("Z_VAR")
+print(Z_var)
 
 ### Scree Plot ###
 pdf(file="Scree.pdf")
